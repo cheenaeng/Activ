@@ -26,9 +26,9 @@ const hash = shaObj.getHash('HEX');
 /* -------------------------------------------------------------------------- */
 const { Pool } = pg;
 const pgConnectionConfigs = {
-  user: '<MY_UNIX_USERNAME>',
+  user: 'cheenaeng',
   host: 'localhost',
-  database: '<MY_UNIX_USERNAME>',
+  database: 'activapp',
   port: 5432, // Postgres server always runs on this port
 };
 const pool = new Pool(pgConnectionConfigs);
