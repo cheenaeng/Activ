@@ -1,0 +1,64 @@
+<%- include('header-wo-nav', {title: `Signup`}); -%>
+<div class="container-sm">
+  <a href="/login">
+    <span class="material-icons material-icons-round m-2">
+      arrow_back_ios_new
+    </span></a
+  >
+  <div
+    class="wrapper d-flex flex-column justify-content-center align-items-center"
+  >
+    <div class="logo-placement">
+      <img src="/images/catlogo.png" alt="catlogo" id="cat-logo" />
+    </div>
+    <div class="signup-details">
+      <form class="box" action="/signup" class="was-validated" method="post">
+        <h1>Signup</h1>
+        <div class-="d-flex flex-column signup-controls">
+          <label for="username" class="text-white mb-0 signup-label"
+            >Username:</label
+          >
+          <input
+            type="text"
+            name="username"
+            placeholder="Username"
+            class="signups-box"
+            required
+          />
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+        <div class-="d-flex flex-column signup-controls">
+          <label for="email" class="text-white signup-label">Email:</label>
+          <input
+            type="email"
+            name="email"
+            placeholder="email"
+            class="signups-box"
+            required
+          />
+          <div class="invalid-feedback">
+            Please provide a valid email address
+          </div>
+        </div>
+        <div class-="d-flex flex-column signup-controls">
+          <label for="password" class="text-white signup-label"
+            >Password:</label
+          >
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            class="signups-box"
+            required
+          />
+        </div>
+        <% if (user.error) {%>
+        <div><p class="text-muted"><%=user.errorMsg%></p></div>
+        <%}%>
+        <input type="submit" value="Register" />
+      </form>
+    </div>
+  </div>
+</div>
+<script></script>
+<%- include('footer'); -%>

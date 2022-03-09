@@ -1,0 +1,99 @@
+<%- include('header', {title: `Home Page`}); -%>
+<%- include('searchbar'); -%>
+
+<div class="container-sm d-flex flex-column justify-content-center">
+  <div class="greeting mt-2"><h2>Hello <%=userName%></h2></div>
+  <div class="top-half pt-2">
+    <div class="header mb-3 ">
+      <h4 class="sub-title">Your Workout Templates</h4>
+    </div>
+    <div id="cards" class="d-flex" >
+      <% if (templates.length ===0){%>
+        <div>No template added by user. Please click <a href="/template">here</a> to create a new workout template</div>
+        <%}%>
+      <%templates.forEach(template=>{%> 
+      <div class="card card-body template-body-card p-3 d-flex flex-column justify-content-center align-items-center mb-3">
+        <h5 class="card-title"><%=template.template_name%></h5>
+        <p class="card-text">Created on: <%=template.created_date%></p>
+        <a href="/template/<%=template.id%>" class="btn template-btn"
+            >See your Workouts!</a
+          >
+      </div>
+      <%})%>
+    </div>
+  </div>
+
+  <div class="second-half-section pt-2">
+    <div class="header mb-3">
+      <h4 class="sub-title">Find a workout</h4>
+    </div>
+  </div>
+
+<!-- find workout segment  -->
+  <div class="find-workout-section pb-0 mx-1 mb-3">
+  <form action="/" method="POST">
+    <div class="row p-0">
+      <div class="title-text">Where are you now?</div>
+      <div class="col">
+        <div class="location-icons d-flex justify-content-around align-items-center">
+          <label for ="home"> 
+              <div class="icon-wrapper p-1 ">
+                <input class="image-radio"type="radio" name="location" value="home" id="home" checked>
+                <div class="material-icons d-flex flex-column justify-content-center align-items-center pt-3">home<p class="location-tag">Home</p></div>
+            
+              </div>
+          </label>
+          <label for = "gym">  
+            <div class="icon-wrapper p-1">
+              <input class="image-radio" type="radio" name="location" value="gym" id ="gym"checked>
+              <div class="material-icons material-icons-outlined d-flex flex-column justify-content-center align-items-center pt-3 ">fitness_center  <p class="location-tag">Gym</p></div>
+          </div>  
+          </label>
+          <label for ="outdoor">
+            <div class="icon-wrapper p-1">
+            <input class="image-radio" type="radio" name="location" value="outdoor" id="outdoor" checked>
+            <div class="material-icons material-icons-outlined d-flex flex-column justify-content-center align-items-center pt-3">park <p class="location-tag">Outdoor</p></div>
+
+          </div>
+          </label>
+      </div>
+      </div>   
+    </div>
+    <div class="row p-0">
+      <div class="title-text">What do you feel like doing today?</div>
+      <div class="col">
+        <div class="category-icons d-flex justify-content-around pt-2">
+        <label for ="strength"> 
+            <div class="words-wrapper p-2">
+              <input class="image-radio"  type="radio" name="category" value="1" id="strength" checked>
+              <div class="category-text">Strength</div>
+          </div>
+        </label>
+        <label for = "cardio"> 
+          <div class="words-wrapper p-2">
+            <input class="image-radio" type="radio" name="category" value="2" id ="cardio"checked>
+            <div class="category-text">Cardio</div>
+          </div>
+        </label>
+        <label for ="core">
+          <div class="words-wrapper p-2">
+          <input class="image-radio" type="radio" name="category" value="3" id="core" checked>
+            <div class="category-text">Core</div>
+          </div>
+        </label>
+        </div>
+      </div>
+    </div>
+      <div class="row mb-0 pb-0">
+        <div class="col d-flex justify-content-end"> 
+          <div class="d-flex flex-column m-0 p-0">
+              <button type="submit" class="border-none right-arrow-button"> <div class="material-icons ">keyboard_double_arrow_right</div>
+         </div>
+          </div>
+        </div>
+    </form>
+  </div>  
+
+</div>
+  
+ <%- include('footer'); -%> 

@@ -1,0 +1,31 @@
+<%- include('header', {title: `Stength Workouts`}); -%> <%-
+include('searchbar'); -%>
+<div class="container-sm">
+  <div class="after-top-nav d-flex align-items-center">
+    <div class="d-flex justify-content-start">
+      <a href="/"
+        ><span class="arrow-back material-icons mx-1 mt-2"
+          >arrow_back_ios</span
+        ></a
+      >
+    </div>
+
+    <div class="mx-1 back-btn-header d-flex align-items-center">
+      Browse By: Body Parts
+    </div>
+  </div>
+
+  <div class="row my-5">
+    <%bodyParts.forEach(bodyPart =>{%>
+
+    <div class="col-4">
+      <a href="/strength/<%=bodyPart.body_parts_name%>">
+        <div class="body-parts-box d-flex justify-content-center p-4 mb-4">
+          <%= bodyPart.body_parts_name%>
+        </div></a
+      >
+    </div>
+    <%})%>
+  </div>
+</div>
+<%- include('footer'); -%>

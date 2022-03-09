@@ -1,0 +1,198 @@
+#add-workout {
+  font-family: oswald;
+  text-align: center;
+  font-size: 4vh;
+  text-transform: uppercase;
+}
+
+#add-workout > span {
+  color: #f5fd32;
+  font-family: oswald;
+  text-transform: uppercase;
+}
+
+.form-control {
+  background-color: #202020;
+  color: #f5f5f5;
+  border-color: #f5f5f5;
+  font-size: 1.8vh;
+}
+
+input[type="text"] {
+  border-radius: 3vh;
+}
+
+.form-control:focus {
+  background-color: #202020;
+  color: #f5f5f5;
+}
+.form-control.is-invalid,
+.was-validated .form-control:invalid {
+  border-color: #4e4d4d;
+}
+
+.invalid-feedback {
+  color: #fd5864;
+  border-color: #4e4d4d;
+}
+
+.mb-3 .form-control.is-valid,
+.was-validated .form-control:valid {
+  border-color: #4e4d4d;
+}
+
+.form-label,
+#equipment-label,
+.categories-label,
+#bodyparts-label,
+.location-label,
+.sets-repetition label,
+#duration-label {
+  color: #f5f5f5;
+  font-size: 2.5vh;
+  font-weight: 700;
+}
+
+#equipment-label > p,
+#bodyparts-label > p,
+.location-label > p,
+#duration-label > p,
+.form-label > p {
+  font-size: 1.5vh;
+  font-weight: 500;
+}
+
+input[type="checkbox"] {
+  font-size: 1.5vh;
+  background-color: #202020;
+}
+
+input[type="checkbox"]:checked:after {
+  background-color: #f5fd32;
+}
+
+.form-check-input.is-valid,
+.was-validated .form-check-input:valid {
+  border-color: #8e8e8e;
+}
+
+.form-check label,
+.bodyparts-checkbox label,
+.location-checkbox label {
+  font-size: 1.5vh !important;
+  text-transform: capitalize !important;
+  color: #e8e8e8 !important;
+}
+
+.checkbox-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.checkbox-box > * {
+  line-height: 2vh;
+}
+.alert-text {
+  color: #fd5864;
+}
+
+label[for="other_equipment"] {
+  font-size: 1.8vh;
+  color: #8e8e8e;
+}
+
+.removeRow {
+  border: none;
+  background-color: transparent;
+}
+
+.removeRow:disabled {
+  color: #4e4d4d;
+}
+
+tr td {
+  padding: 0;
+}
+tr {
+  display: flex;
+  gap: 1vh;
+  align-items: center;
+}
+input[type="text"],
+#workout_description {
+  color: #8e8e8e;
+}
+
+td:nth-child(2) input,
+#sets,
+#repetiton {
+  background-color: #202020;
+  border-radius: 1vh;
+  font-size: 1.5vh;
+  padding: 0vh 1vh;
+  border: solid 0.2vh #4e4d4d;
+  width: 25vh;
+}
+td:nth-child(2) input:focus {
+  color: #8e8e8e;
+  border: #4e4d4d;
+}
+
+#sets,
+#repetition {
+  width: 10vh;
+}
+
+td:nth-child(3) > button {
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+
+.remove-icon,
+.add-icon {
+  font-size: 2vh;
+}
+
+.categories-radio > label {
+  color: #f5f5f5 !important;
+}
+
+.categories-radio > input {
+  background-color: #202020;
+}
+
+.categories-radio > input:focus,
+.categories-radio > input:checked {
+  background-color: #f5fd32;
+  color: #f5fd32 !important;
+}
+
+.form-submit-btn {
+  margin: 1vh auto;
+  padding: 3px 10px;
+  background-color: #f5f5f5;
+  border: none;
+  color: #202020;
+  box-shadow: 0px 0px 5px #fff;
+  font-family: oswald;
+}
+
+.form-submit-btn:hover {
+  background-color: #202020 !important;
+  color: #f5f5f5;
+}
+
+.form-submit-btn:active {
+  transform: scale(0.98);
+  /* Scaling button to 0.98 to its original size */
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+  /* Lowering the shadow */
+  border: none !important;
+}
+
+.bodyparts-checkbox,
+.location-checkbox {
+  line-height: 2vh;
+}
+

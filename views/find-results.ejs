@@ -1,0 +1,29 @@
+<%- include('header', {title: 'Search Workouts'}); -%> <%- include('searchbar');
+-%>
+
+<div class="container-all-workout">
+  <div class="workout-header d-flex justify-content-center mt-2">
+    <h4>Search workouts</h4>
+  </div>
+  <div class="workouts-container">
+    <div class="row list-group list-group-numbered">
+      <%workouts.forEach(workout=>{%>
+      <div
+        class="col list-group-item d-flex justify-content-between align-items-start all-workouts-list"
+      >
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">
+            <a href="/workout/<%=workout.id%>" class="workout-link"
+              ><%=workout.workout_name%></a
+            >
+          </div>
+        </div>
+      </div>
+      <%})%> <% if (workouts.length ===0){%>
+      <div>Sorry no results found :(</div>
+      <%}%>
+    </div>
+  </div>
+</div>
+
+<%- include('footer'); -%>

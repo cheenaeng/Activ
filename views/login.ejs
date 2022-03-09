@@ -1,0 +1,35 @@
+<%- include('header-wo-nav', {title: `Home Page`}); -%>
+<div class="container-sm">
+  <div class="top-half d-flex flex-column align-items-center">
+    <div class="logo-placement mt-4">
+      <img src="/images/catlogo.png" alt="catlogo" id="cat-logo" />
+    </div>
+    <div class="login-title pt-4 px-3">
+      <h2>Stay <span id="activeword">Active</span> Wherever You Are</h2>
+    </div>
+  </div>
+  <div class="mt-4">
+    <form class="box mt-5" action="/login" method="post">
+      <h3><span>Welcome</span></h3>
+      <input
+        type="text"
+        name="username"
+        placeholder="Username"
+        autocomplete="off"
+      />
+      <input type="password" name="password" placeholder="Password" />
+      <input type="submit" value="Login" />
+      <% if (user.error) {%>
+      <p class="text-muted error-message"><%=user.errorMsg%></p>
+      <%}%>
+      <div class="sign-up">
+        <a href="/signup"
+          ><div class="register-text text-white">
+            No account? Register now!
+          </div></a
+        >
+      </div>
+    </form>
+  </div>
+</div>
+<%- include('footer'); -%>

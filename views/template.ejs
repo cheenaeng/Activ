@@ -1,0 +1,50 @@
+<%- include('header', {title: 'Template Workout'}); -%>
+<%-include('searchbar');-%>
+
+<div class="container-sm">
+  <div class="after-top-nav d-flex align-items-center">
+      <div class=" d-flex">
+        <a href="/"><span class="material-icons mx-1 mt-2 arrow-back ">arrow_back_ios</span></a >
+      </div>
+
+      <div class="mx-1 back-btn-header d-flex align-items-center"> Your Workout Templates</div>
+  </div>
+   
+  <div class="template-container border border-dark mt-2 mb-2 d-flex flex-column">
+    <form action="/template" method="POST">
+      <div class="mb-2">
+        <label for="template_name">Enter a new workout template name:</label>
+      </div>
+      <div class="d-flex align-items-center">
+        <input type="text" name="template_name" placeholder="Choose a template name" />
+        <button id="template-btn" type="submit" class=" mx-1 ">Add New!</button>
+      </div>
+    </form>
+    </div>
+  
+    <div class="cards-container">
+      <%templates.forEach(template=>{%>
+      <div class="card mb-2">
+        <div class="card-body template-body ">
+          <div class="d-flex justify-content-between">
+          <h5 class="card-title">Template Name: <p class="mb-0"><%=template.template_name%></p></h5>
+            <div class="trash-icon">
+              <form action="/<%=template.id%>?_method=DELETE" method="POST">
+                <button type="submit" class="trash-wrapper" ><div class="material-icons" id="delete-trash">delete_forever</div></button>
+              </form>
+            </div>
+          </div>
+          <p class="card-text text-muted">Created date: <%= template.created_date%></p>
+          <a href="/template/<%=template.id%>" class="btn template-btn"
+            >See your workouts!</a
+          >
+        </div>
+       
+      </div>
+      <%})%>
+    </div>
+  
+</div>
+</body>
+<script></script>
+<%- include('footer'); -%>

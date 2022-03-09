@@ -1,0 +1,46 @@
+<%- include('header', {title: `${category}`}); -%> <%- include('searchbar'); -%>
+<div class="container-sm">
+  <div class="after-top-nav d-flex align-items-center">
+    <div class="d-flex justify-content-start">
+      <a href="/"
+        ><span class="arrow-back material-icons mx-1 mt-2"
+          >arrow_back_ios</span
+        ></a
+      >
+    </div>
+  </div>
+
+  <div class="workout-lists-container">
+    <div class="row workout-lists-header">
+      <div class="col display-flex">Workout Name</div>
+    </div>
+    <%workouts.forEach(workout =>{%>
+    <div class="row">
+      <div class="col-1">
+        <a href="/workout/<%=workout.id%>"
+          ><span class="material-icons">visibility</span></a
+        >
+      </div>
+      <div class="col-7">
+        <a href="/workout/<%=workout.id%>"><%= workout.workout_name%></a>
+      </div>
+      <div class="col-2">
+        <a href="/workout/<%=workout.id%>/edit">
+          <div class="material-icons">edit</div></a
+        >
+      </div>
+      <div class="col-2">
+        <form action="/workout/favorite/<%=workout.id%>" method="post">
+          <button type="submit" id="add-to-favorite">
+            <div
+              class="material-icons star-icon d-flex flex-column align-items-center"
+            >
+              star
+            </div>
+          </button>
+        </form>
+      </div>
+    </div>
+    <%})%> <%- include('footer'); -%>
+  </div>
+</div>

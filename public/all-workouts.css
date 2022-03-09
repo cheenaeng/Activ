@@ -1,0 +1,129 @@
+.nav-item.main-nav button,
+.locations-nav-main button,
+.category-main-nav button {
+  background-color: transparent !important;
+  width: 20vh;
+}
+
+.nav-item.main-nav .nav-link.active,
+.locations-nav-main .nav-link.active,
+.category-main-nav .nav-link.active {
+  border-radius: 0;
+  position: relative;
+  border: none;
+}
+.locations-nav-main .nav-link.active {
+  border: none;
+}
+
+.locations-nav-main .nav-link.active:after,
+.category-main-nav .nav-link.active:after {
+  content: "";
+  display: block;
+  position: relative;
+  width: 50%;
+  border: 1px solid #caccd1;
+  border-radius: 10px;
+  margin: 4px auto;
+  box-shadow: 0px 0px 5px #fff;
+}
+
+.main-nav-pills {
+  justify-content: space-evenly;
+  flex-wrap: nowrap;
+  font-size: 2vh;
+}
+
+.main-nav-pills button,
+.locations-nav-main button,
+.category-main-nav button {
+  font-family: quicksand;
+  text-transform: uppercase;
+  font-size: 1.5vh;
+}
+
+.main-nav-pills button:hover,
+.nav-item.main-nav .nav-link.active {
+  color: #f5fd32;
+  font-size: 2vh;
+}
+
+.main-nav-pills button {
+  color: #b1b1b1;
+}
+
+.workouts-container {
+  width: 80vw;
+  margin: 1vh auto;
+}
+.workouts-container .row {
+  border: solid 1px #5b5b5b !important;
+}
+
+.all-workouts-list,
+.all-workouts-list > a {
+  background-color: #202020;
+  text-transform: capitalize;
+}
+
+.workout-link {
+  color: #efefef;
+}
+
+.workout-link:hover {
+  color: #555861;
+}
+
+.list-group-item {
+  border: none;
+  font-size: 1.8vh;
+}
+
+.location-category-pills button {
+  background-color: #353535 !important;
+  font-family: quicksand;
+  text-transform: uppercase;
+  color: #8e8e8e;
+  padding: 0.5vh 2vh;
+  font-size: 1.7vh;
+}
+
+.location-category-pills .nav-link.active,
+.location-category-pills .nav-link:hover {
+  color: #f5f5f5;
+  box-shadow: 0px 0px 5px #fff;
+}
+
+.locations-nav-main .nav-link,
+.category-main-nav .nav-link {
+  color: #8e8e8e;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.location-workout-container,
+.category-workout-container {
+  width: 80vw;
+  margin: auto;
+  border: solid 1px #5b5b5b;
+  padding: 1vh 0.5vh;
+}
+
+.location-list-item,
+.category-list-item {
+  font-size: 1.8vh;
+  text-transform: capitalize;
+  padding: 0.7vh;
+}
+
+.location-list-item a,
+.category-list-item a {
+  color: #efefef;
+}
+
+.location-list-item a:hover,
+.category-list-item a:hover {
+  color: #555861;
+}

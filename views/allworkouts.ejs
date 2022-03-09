@@ -1,0 +1,411 @@
+<%- include('header', {title: 'All Workouts'}); -%> <%- include('searchbar');
+-%>
+
+<div class="container-sm container-all-workout">
+  <div class="after-top-nav d-flex align-items-center">
+    <div class="d-flex justify-content-start">
+      <a href="/"
+        ><span class="arrow-back material-icons mx-1 mt-2"
+          >arrow_back_ios</span
+        ></a
+      >
+    </div>
+
+    <div class="mx-1 back-btn-header d-flex align-items-center">Browse By:</div>
+  </div>
+
+  <ul class="nav nav-pills mb-2 main-nav-pills" id="pills-tab" role="tablist">
+    <li class="nav-item main-nav" role="presentation">
+      <button
+        class="nav-link active"
+        id="pills-all-workouts-tab"
+        data-bs-toggle="pill"
+        data-bs-target="#pills-all-workouts"
+        type="button"
+        role="tab"
+        aria-controls="pills-all-workouts"
+        aria-selected="true"
+      >
+        See All Workouts
+      </button>
+    </li>
+    <li class="nav-item main-nav" role="presentation">
+      <button
+        class="nav-link"
+        id="pills-your-workout-tab"
+        data-bs-toggle="pill"
+        data-bs-target="#pills-your-workout"
+        type="button"
+        role="tab"
+        aria-controls="pills-your-workout"
+        aria-selected="false"
+      >
+        Your added workout
+      </button>
+    </li>
+    <li class="nav-item main-nav" role="presentation">
+      <button
+        class="nav-link"
+        id="pills-filter-tab"
+        data-bs-toggle="pill"
+        data-bs-target="#pills-filter"
+        type="button"
+        role="tab"
+        aria-controls="pills-filter"
+        aria-selected="false"
+      >
+        Filters
+      </button>
+    </li>
+  </ul>
+
+  <div class="tab-content" id="pills-tabContent">
+    <div
+      class="tab-pane fade show active"
+      id="pills-all-workouts"
+      role="tabpanel"
+      aria-labelledby="pills-all-workouts-tab"
+    >
+      <div class="workouts-container">
+        <div class="row list-group list-group-numbered">
+          <%workouts.forEach(workout=>{%>
+          <div
+            class="col list-group-item d-flex justify-content-between align-items-start all-workouts-list"
+          >
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">
+                <a href="/workout/<%=workout.id%>" class="workout-link">
+                  <%=workout.workout_name%></a
+                >
+              </div>
+            </div>
+          </div>
+          <%})%>
+        </div>
+      </div>
+    </div>
+    <!-- within the filter tab -->
+    <div
+      class="tab-pane fade"
+      id="pills-filter"
+      role="tabpanel"
+      aria-labelledby="pills-filter-tab"
+    >
+      <ul
+        class="nav nav-pills mb-3 justify-content-evenly"
+        id="pills-tab"
+        role="tablist"
+      >
+        <li class="nav-item location-category-pills" role="presentation">
+          <button
+            class="nav-link active"
+            id="pills-location-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-location"
+            type="button"
+            role="tab"
+            aria-controls="pills-location"
+            aria-selected="true"
+          >
+            Location
+          </button>
+        </li>
+        <li class="nav-item location-category-pills" role="presentation">
+          <button
+            class="nav-link"
+            id="pills-category-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-category"
+            type="button"
+            role="tab"
+            aria-controls="pills-category"
+            aria-selected="false"
+          >
+            Category
+          </button>
+        </li>
+      </ul>
+
+      <!-- displays each tab with the respective location -->
+      <div class="tab-content" id="pills-tabContent">
+        <div
+          class="tab-pane fade show active"
+          id="pills-location"
+          role="tabpanel"
+          aria-labelledby="pills-location-tab"
+        >
+          <div class="row location-outer-row">
+            <nav>
+              <div
+                class="nav nav-pills locations-nav-main flex-nowrap justify-content-center"
+                id="nav-pills"
+                role="tablist"
+              >
+                <button
+                  class="nav-link active"
+                  id="nav-gym-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#nav-gym"
+                  type="button"
+                  role="tab"
+                  aria-controls="nav-gym"
+                  aria-selected="true"
+                >
+                  Gym
+                </button>
+                <button
+                  class="nav-link"
+                  id="nav-home-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#nav-home"
+                  type="button"
+                  role="tab"
+                  aria-controls="nav-home"
+                  aria-selected="false"
+                >
+                  Home
+                </button>
+                <button
+                  class="nav-link"
+                  id="nav-outdoor-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#nav-outdoor"
+                  type="button"
+                  role="tab"
+                  aria-controls="nav-outdoor"
+                  aria-selected="false"
+                >
+                  Outdoor
+                </button>
+              </div>
+            </nav>
+
+            <div class="tab-content" id="nav-tabContent">
+              <div
+                class="tab-pane fade show active"
+                id="nav-gym"
+                role="tabpanel"
+                aria-labelledby="nav-gym-tab"
+              >
+                <div class="location-workout-container">
+                  <ul>
+                    <%workoutLocations.forEach(workout=>{%> <%if
+                    (workout.location_text === 'gym'){%>
+                    <li class="location-list-item">
+                      <a href="/workout/<%=workout.id%>"
+                        ><%=workout.workout_name%></a
+                      >
+                    </li>
+                    <%}%> <%})%>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="tab-pane fade"
+                id="nav-home"
+                role="tabpanel"
+                aria-labelledby="nav-home-tab"
+              >
+                <div class="location-workout-container">
+                  <ul>
+                    <%workoutLocations.forEach(workout=>{%> <%if
+                    (workout.location_text === 'home'){%>
+                    <li class="location-list-item">
+                      <a href="/workout/<%=workout.id%>"
+                        ><%=workout.workout_name%></a
+                      >
+                    </li>
+                    <%}%> <%})%>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="tab-pane fade"
+                id="nav-outdoor"
+                role="tabpanel"
+                aria-labelledby="nav-outdoor-tab"
+              >
+                <div class="location-workout-container">
+                  <ul>
+                    <%workoutLocations.forEach(workout=>{%> <%if
+                    (workout.location_text === 'outdoor'){%>
+                    <li class="location-list-item">
+                      <a href="/workout/<%=workout.id%>"
+                        ><%=workout.workout_name%></a
+                      >
+                    </li>
+                    <%}%> <%})%>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- to display each category-->
+        <div
+          class="tab-pane fade"
+          id="pills-category"
+          role="tabpanel"
+          aria-labelledby="pills-category-tab"
+        >
+          <div class="row category-outer-row">
+            <ul
+              class="nav nav-pills mb-1 flex-nowrap justify-content-center"
+              id="pills-tab"
+              role="tablist"
+            >
+              <li class="nav-item category-main-nav" role="presentation">
+                <button
+                  class="nav-link active"
+                  id="pills-strength-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-strength"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-strength"
+                  aria-selected="true"
+                >
+                  Strength
+                </button>
+              </li>
+              <li class="nav-item category-main-nav" role="presentation">
+                <button
+                  class="nav-link"
+                  id="pills-cardio-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-cardio"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-cardio"
+                  aria-selected="false"
+                >
+                  Cardio
+                </button>
+              </li>
+              <li class="nav-item category-main-nav" role="presentation">
+                <button
+                  class="nav-link"
+                  id="pills-core-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-core"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-core"
+                  aria-selected="false"
+                >
+                  Core
+                </button>
+              </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+              <div
+                class="tab-pane fade show active"
+                id="pills-strength"
+                role="tabpanel"
+                aria-labelledby="pills-strength-tab"
+              >
+                <div class="category-workout-container" class="each-category">
+                  <ul>
+                    <%workoutCategory.forEach(workout=>{%> <%if
+                    (workout.category_type === 'strength'){%>
+                    <li class="category-list-item">
+                      <a href="/workout/<%=workout.id%>"
+                        ><%=workout.workout_name%></a
+                      >
+                    </li>
+                    <%}%> <%})%>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="tab-pane fade"
+                id="pills-cardio"
+                role="tabpanel"
+                aria-labelledby="pills-cardio-tab"
+              >
+                <div class="category-workout-container" class="each-category">
+                  <ul>
+                    <%workoutCategory.forEach(workout=>{%> <%if
+                    (workout.category_type === 'cardio'){%>
+                    <li class="category-list-item">
+                      <a href="/workout/<%=workout.id%>"
+                        ><%=workout.workout_name%></a
+                      >
+                    </li>
+                    <%}%> <%})%>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="tab-pane fade"
+                id="pills-core"
+                role="tabpanel"
+                aria-labelledby="pills-core-tab"
+              >
+                <div class="category-workout-container" class="each-category">
+                  <ul>
+                    <%workoutCategory.forEach(workout=>{%> <%if
+                    (workout.category_type === 'core'){%>
+                    <li class="category-list-item">
+                      <a href="/workout/<%=workout.id%>"
+                        ><%=workout.workout_name%></a
+                      >
+                    </li>
+                    <%}%> <%})%>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- To show workouts added by users -->
+    <div
+      class="tab-pane fade"
+      id="pills-your-workout"
+      role="tabpanel"
+      aria-labelledby="pills-your-workout-tab"
+    >
+      <div class="workouts-container">
+        <div class="row list-group list-group-numbered">
+          <% if (userWorkouts.length ===0){%>
+          <div>
+            No workout added by user yet. Click <a href="/workout">here</a> to
+            create your own workout
+          </div>
+          <%}%> <%userWorkouts.forEach(workout=>{%>
+          <div
+            class="col list-group-item d-flex justify-content-between align-items-start all-workouts-list"
+          >
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">
+                <a href="/workout/<%=workout.id%>" class="workout-link">
+                  <%=workout.workout_name%>
+                </a>
+              </div>
+            </div>
+          </div>
+          <%})%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var triggerTabList = [].slice.call(
+    document.querySelectorAll("#myTab button")
+  );
+  triggerTabList.forEach(function (triggerEl) {
+    var tabTrigger = new bootstrap.Tab(triggerEl);
+
+    triggerEl.addEventListener("click", function (event) {
+      event.preventDefault();
+      tabTrigger.show();
+    });
+  });
+</script>
+<%- include('footer'); -%>

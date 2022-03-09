@@ -1,0 +1,60 @@
+<%- include('header', {title: 'Template Workout'}); -%>
+<%-include('searchbar');-%>
+<div class="container-sm "></div>
+<div class="after-top-nav d-flex align-items-center">
+  <div class="d-flex justify-content-start">
+    <a href="/template"
+      ><span class="arrow-back material-icons mx-1 mt-2"
+        >arrow_back_ios</span
+      ></a
+    >
+  </div>
+
+  <div class="mx-1 back-btn-header d-flex align-items-center">
+    Your workouts:
+  </div>
+</div>
+
+
+  <% if (workouts.length ===0){%>
+
+  <div id="no-workouts-msg " class="m-4 mt-3">
+    There's no workout here :( Click here to
+    <a href="/" class="text-decoration-none"> add </a>
+    workout
+  </div>
+  <%}%> <% workouts.forEach(workout=>{%>
+  <div class="template-list mt-3">
+    <div>
+      <a
+        href="/workout/<%=workout.workout_id%>"
+        class="list-group-item-action active mb-2 template-list-group"
+        aria-current="true"
+      >
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1 workout-title"><%= workout.workout_name%></h5>
+          <small>
+            <form
+              action="/<%=template%>/<%=workout.workout_id%>?_method=DELETE"
+              method="POST"
+            >
+              <button type="submit" class="delete-workout-template">
+                <div class="material-icons">remove_circle</div>
+              </button>
+            </form></small
+          >
+        </div>
+        <p class="mb-1">Sets: <%=workout.sets%></p>
+        <p class="mb-1">Repetition: <%=workout.repetition%></p>
+
+        <p class="mb-1">
+          Equipment required: <% relevantEquipment.forEach( equipment=>{%>
+          <%if(workout.workout_id === equipment.workout_id){%>
+          <%=equipment.equipment_required%><%}%> <%})%>
+        </p>
+      </a>
+    </div>
+  </div>
+  <%})%>
+</div>
+<%- include('footer'); -%>

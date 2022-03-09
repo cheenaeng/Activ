@@ -18,7 +18,17 @@
     "url": "https://github.com/rocketacademy/base-node-bootcamp/issues"
   },
   "homepage": "https://github.com/rocketacademy/base-node-bootcamp#readme",
-  "dependencies": {},
+  "dependencies": {
+    "bootstrap-icons": "^1.8.1",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "jssha": "^3.2.0",
+    "method-override": "^3.0.0",
+    "moment": "^2.29.1",
+    "pg": "^8.7.3"
+  },
   "devDependencies": {
     "eslint": "^7.12.1",
     "eslint-config-airbnb-base": "^14.2.0",

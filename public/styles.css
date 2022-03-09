@@ -1,0 +1,685 @@
+@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Montserrat:wght@100;500;700&family=Oswald:wght@200;500;700&family=Quicksand:wght@300;500;700&family=Roboto:ital,wght@0,400;0,700;0,900;1,500&display=swap");
+* {
+  font-family: Montserrat;
+  color: #f5f5f5;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid #009578;
+  -webkit-text-fill-color: #009578;
+  -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+body {
+  margin: 0 0 55px 0;
+  background-color: #202020;
+}
+.logout-icon {
+  all: unset;
+}
+h2,
+#activeword,
+h3 {
+  color: #f5f5f5;
+  font-family: oswald;
+}
+
+h2 {
+  font-size: 4vh;
+}
+
+h3 {
+  font-family: montserrat;
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #f5f5f5;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+}
+
+h3 span {
+  background-color: #202020;
+
+  padding: 0 10px;
+}
+#activeword {
+  color: #f5fd32;
+}
+
+.bottom-nav-bar {
+  position: fixed;
+  bottom: 3px;
+  width: 100%;
+  height: 50px;
+  border-radius: 4vh;
+  background-color: #353535;
+  display: flex;
+  overflow-x: auto;
+  z-index: 1;
+  margin: auto;
+}
+
+.nav span {
+  color: #64697d !;
+}
+.form-check-label {
+  color: black !;
+}
+
+a,
+.top-nav-bar-list > li {
+  list-style: none;
+  text-decoration: none;
+}
+
+.top-nav-bar-list {
+  font-size: 4vh;
+}
+
+.nav__link {
+  color: #b1b1b1;
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 1.2vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  width: 50px;
+  overflow: hidden;
+  white-space: nowrap;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.1s ease-in-out;
+}
+
+.nav__link:hover {
+  color: #f5fd32 !important;
+}
+
+.nav__link:active {
+  color: #f5fd32 !important;
+}
+
+.nav-icon {
+  font-size: 5vh;
+}
+
+.box {
+  width: 300px;
+  padding: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.box h1 {
+  color: white;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.box input[type="text"],
+.box input[type="password"],
+.box input[type="email"] {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 2vh auto;
+  text-align: center;
+  border: 2px solid #f5f5f5;
+  padding: 2vh 1vh;
+  width: 20vh;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  font-size: 1.5vh;
+}
+
+.box input[type="text"]:focus,
+.box input[type="password"]:focus,
+.box input [type="email"]:focus {
+  width: 23vh;
+  border-color: #f5fd32;
+}
+
+.box input[type="submit"] {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 2vh auto;
+  text-align: center;
+  border: 2px solid #f5fd32;
+  padding: 1vh 4vh;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.box input[type="submit"]:hover {
+  background: #f5fd32;
+  color: #202020;
+}
+
+.login-title > h1 {
+  font-size: 8vh;
+}
+
+.signups-box {
+  margin: 0.5vh auto !important;
+  padding: 1vh 2vh !important;
+}
+.error-message {
+  font-size: 1.8vh;
+}
+.signup-label {
+  font-family: Montserrat;
+  display: flex;
+  margin-left: 3vh;
+  font-size: 1.5vh;
+}
+
+.material-icons-round {
+  color: #f5f5f5;
+}
+
+#cat-logo {
+  width: 25vh;
+  margin: auto;
+}
+
+.search-bar {
+  width: 13vh;
+  height: 3vh;
+  background-color: #232128;
+}
+
+.search-bar:focus {
+  width: 17vh;
+  border-color: #f5fd32;
+}
+.search-bar-div {
+  gap: 1vh;
+}
+
+.search-btn {
+  font-size: 3vh;
+}
+
+.top-nav-main .col-5 > a {
+  text-transform: uppercase;
+  color: #f5f5f5;
+  border-radius: 1vh;
+  padding: 1vh;
+  text-decoration: none;
+  font-family: Montserrat;
+  font-size: 1.8vh;
+  white-space: nowrap;
+}
+
+.top-nav-main .col-5 > a:hover {
+  background-color: #f5f5f5;
+  color: #232128;
+}
+
+.greeting > h2 {
+  font-family: oswald;
+  text-transform: uppercase;
+  font-size: 5vh;
+}
+
+.sub-title {
+  font: 7vh;
+  color: #f5fd32;
+  margin-left: 1vh;
+}
+
+.avatar-icon > img {
+  width: 4vh;
+  border: solid #f5f5f5;
+  border-radius: 30%;
+}
+
+.image-radio {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.image-radio + div {
+  cursor: pointer;
+  font-size: 6vh;
+  background-color: #353535;
+  border-radius: 1vh;
+  padding: 1vh;
+  color: #8e8e8e;
+}
+
+.image-radio:focus + div {
+  background-color: #353535;
+  box-shadow: 0px 0px 5px #fff;
+}
+
+.image-radio:checked + div {
+  background-color: #353535;
+  box-shadow: 0px 0px 5px #fff;
+  color: #f5f5f5;
+}
+.words-wrapper {
+  width: 14vh;
+}
+.category-text {
+  font-size: 2vh !important;
+  background-color: #353535 !important;
+  text-align: center;
+}
+.category-text:focus {
+  background-color: #f5fd32 !important;
+}
+
+.category-text:checked {
+  background-color: #f5fd32 !important;
+}
+
+.find-workout-section {
+  padding: 2vh;
+  border-radius: 5vh;
+  background-color: #353535;
+}
+#add-to-favorite,
+.right-arrow-button {
+  background-color: transparent;
+  border: none;
+}
+
+.right-arrow-button:hover {
+  cursor: pointer;
+}
+
+.template-container,
+.card {
+  background-color: #353535;
+  padding: 3vh;
+  border-radius: 2vh;
+}
+
+.template-container {
+  background-color: #4f4f4f;
+}
+
+#template-btn {
+  background-color: #232128;
+  font-size: 1.7vh;
+}
+
+.template-container input {
+  background-color: #202020;
+  color: #f5f5f5;
+  font-size: 1.6vh;
+  padding: 0.5vh 2vh;
+  width: 25vh;
+}
+
+.template-body {
+  background-color: #353535;
+  color: #f5f5f5;
+  border: none;
+}
+
+.card {
+  padding: 1vh;
+}
+
+.card-title {
+  font-weight: 700;
+  font-weight: 1.5vh;
+}
+.trash-wrapper {
+  background-color: transparent;
+  border: none;
+}
+
+#delete-trash {
+  background-color: transparent;
+}
+
+.template-btn {
+  background-color: #f5f5f5;
+  border: 0;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  color: #111827;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+  padding: 0.4rem 1rem;
+  text-align: center;
+  text-decoration: none #d1d5db solid;
+  text-decoration-thickness: auto;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  box-shadow: 0px 0px 5px #fff;
+}
+
+.template-btn:hover {
+  background-color: #232128;
+  color: #f5f5f5;
+}
+
+.template-btn:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.template-btn:focus-visible {
+  box-shadow: none;
+}
+.card-title > p,
+.workout-title {
+  color: #f5fd32;
+  text-transform: capitalize;
+}
+
+.workout-title {
+  text-transform: capitalize;
+}
+
+.delete-workout-template {
+  background-color: transparent !important;
+  border: none;
+}
+
+.delete-workout-template > div {
+  color: #d1d5db;
+}
+.icon-wrapper div {
+  width: 10vh;
+  height: 10vh;
+}
+.location-tag {
+  text-align: center;
+  font-size: 2vh;
+  color: #8e8e8e;
+}
+
+#cards {
+  gap: 2vh;
+  overflow-x: auto;
+}
+
+.template-body-card {
+  font-size: 1.5vh;
+  max-width: 27vh;
+  padding: 2vh;
+  flex-shrink: 0;
+}
+
+.template-body-card > h5 {
+  text-transform: capitalize;
+  font-size: 2vh;
+}
+
+#cards::-webkit-scrollbar {
+  display: none;
+}
+
+.template-body-card > a {
+  width: 15vh;
+  font-size: 1.2vh;
+  padding: 2px 8px;
+  border: none;
+  box-shadow: 0px 0px 5px #fff;
+  background-color: #f5f5f5;
+  color: #353535;
+}
+
+.right-arrow-button div {
+  color: #f5fd32;
+  text-shadow: 0px 0px 5px #fff;
+}
+
+.right-arrow-button div:hover {
+  cursor: pointer;
+}
+
+.back-btn-header {
+  text-transform: uppercase;
+  font-family: oswald;
+  font-size: 3vh;
+  white-space: nowrap;
+}
+.arrow-back {
+  font-size: 2.5vh;
+}
+
+.workout-lists-container .row .col-2 button,
+.workout-lists-container .row .col-2 button {
+  background-color: transparent;
+  border: none;
+}
+.workout-lists-container .row .col-2 button .material-icons,
+.workout-lists-container .row .col-2 button .material-icons {
+  color: #d1d5db;
+}
+
+.workout-lists-container .row .col-7 a {
+  text-transform: capitalize;
+  color: #d1d5db;
+}
+#add-to-favorite:hover,
+.edit-control > a div:hover,
+#delete-workout i:hover,
+.workout-lists-container .row .col-2 a .material-icons:hover,
+.workout-lists-container .row .col-2 button .material-icons:hover,
+.workout-lists-container .row .col-2 button .material-icons:active,
+.workout-lists-container .row .col-2 button .material-icons:active,
+.workout-lists-container .row .col-2 button .material-icons:hover,
+.workout-lists-container .row .col-1 a .material-icons:hover {
+  color: #f5fd32;
+}
+
+.workout-lists-container .row .col-7 a:hover,
+.workout-lists-container .row .col-7 a:active {
+  color: #f5f5f5;
+}
+
+.workout-lists-container .row {
+  border: solid 1px #353535;
+  padding: 0.8vh;
+}
+
+.workout-lists-container .row .col-6,
+.workout-lists-container .row .col-3 {
+  align-items: center;
+}
+
+.body-parts-box {
+  border: solid 1px #d1d5db;
+  border-radius: 5px;
+  padding: 1vh;
+}
+
+a .body-parts-box {
+  text-transform: uppercase;
+  color: #8e8e8e;
+}
+
+.body-parts-box:hover {
+  background-color: #d1d5db;
+  color: #202020;
+}
+
+.workout-lists-header {
+  text-transform: uppercase;
+  font-size: 2vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.workout-lists-container {
+  margin: 1vw;
+  padding: 2vh;
+}
+
+#workoutname {
+  text-transform: uppercase;
+}
+
+.workout-description {
+  font-size: 1.8vh;
+  color: #b1b1b1;
+  word-spacing: 2px;
+}
+
+#delete-workout,
+.add-to-template-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 3vh;
+}
+
+iframe {
+  margin: auto;
+}
+
+/* to style select dropdown */
+.add-to-template-control {
+  position: relative;
+  width: 30vh;
+  gap: 2vw;
+}
+
+.add-to-template-control select {
+  display: none;
+}
+
+.select-selected {
+  background-color: #353535;
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 10px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/* style the items (options), including the selected item: */
+.select-items div,
+.select-selected {
+  color: #ffffff;
+  padding: 3px 5px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+/* Style items (options): */
+.select-items {
+  position: absolute;
+  background-color: #64697d;
+  color: #202020;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  text-transform: capitalize;
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover,
+.same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.star-icon:hover,
+.star-icon:active {
+  color: #f5fd32;
+  text-shadow: 0px 0px 5px #fff;
+}
+
+.col-5.sets {
+  font-size: 2vh;
+  padding: 1vh;
+}
+
+.star-icon,
+#delete-workout,
+.edit-workout-icon {
+  font-size: 3vh;
+}
+
+.all-icons {
+  gap: 1vh;
+}
+
+.choose-template {
+  font-size: 1.5vh;
+  white-space: nowrap;
+  gap: 1vh;
+}
+
+.individual-workout-container {
+  margin: 1vh 5vw;
+  padding: 1vh;
+}
+
+.workout-information {
+  margin: 0;
+  padding: 0;
+}
+
+.template-list > div {
+  border: solid 1px #353535;
+  padding: 1vh;
+  margin-bottom: 1vh;
+}
+
+.workout-information .row .col-4 {
+  font-size: 1.5vh;
+}
+
+.workout-information .row .col-4 {
+  text-transform: capitalize;
+}
+
+.container-sm {
+  margin: 1vh 1vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

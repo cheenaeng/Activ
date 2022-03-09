@@ -1,0 +1,279 @@
+<%- include('header', {title: 'Custom Workout'}); -%> <%-
+include('searchbar');-%>
+
+<div class="container-sm">
+  <h1 class="mt-3" id="add-workout">Add a <span>new </span>workout here!</h1>
+  <!-- start of form  -->
+  <div class="form-wrapper mt-2 mx-2">
+    <form action="/workout" method="post" class="was-validated" id="form_check">
+      <div class="mb-3 mt-3">
+        <label for="workout_name" class="form-label">Workout Name:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="workout_name"
+          placeholder="Enter workout name"
+          name="workout_name"
+          required
+        />
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+
+      <!-- for workout description -->
+
+      <div class="mb-3">
+        <label for="workout_description" class="form-label"
+          >Description of workout:</label
+        >
+        <textarea
+          class="form-control is-invalid"
+          id="workout_description"
+          placeholder="Please enter a brief description of the workout in the textarea."
+          required
+          name="workout_description"
+        ></textarea>
+      </div>
+
+      <!-- for equipment list -->
+
+      <div class="mb-3 mt-3">
+        <div id="equipment-label">
+          Equipment:
+          <p class="text-muted">Check those that applies:</p>
+        </div>
+
+        <div class="row checkbox-box">
+          <%equipment.forEach(equipment => {%>
+          <div class="col-4 form-check">
+            <label for="<%=equipment.equipment_required%>"
+              ><%=equipment.equipment_required%></label
+            >
+            <input
+              type="checkbox"
+              class="form-check-input equipment-check"
+              name="equipment"
+              id="<%=equipment.equipment_required%>"
+              value="<%=equipment.id%>"
+            />
+          </div>
+          <%})%>
+        </div>
+
+        <div>
+          <label for="other_equipment">If others:</label>
+          <table id="tbl">
+            <tr>
+              <td>
+                <button class="button removeRow" onclick="removeRow(this);">
+                  <span class="material-icons remove-icon">remove</span>
+                </button>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  placeholder="please key equipment."
+                  name="new_equipment"
+                />
+              </td>
+              <td>
+                <button type="button" class="button" onclick="addField(this);">
+                  <div class="material-icons add-icon">add</div>
+                </button>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- category select -->
+      <div class="mb-3 mt-3">
+        <div class="categories-label">Categories:</div>
+        <div class="form-check form-check-inline categories-radio">
+          <input
+            type="radio"
+            class="form-check-input"
+            id="strength"
+            name="category_id"
+            value="1"
+          />
+          <label class="form-check-label" for="strength">Strength</label>
+        </div>
+        <div class="form-check form-check-inline categories-radio">
+          <input
+            type="radio"
+            class="form-check-input"
+            id="cardio"
+            name="category_id"
+            value="2"
+            checked
+          />
+          <label class="form-check-label" for="cardio">Cardio</label>
+        </div>
+
+        <div class="form-check form-check-inline categories-radio">
+          <input
+            type="radio"
+            class="form-check-input"
+            id="core"
+            name="category_id"
+            value="3"
+          />
+          <label class="form-check-label">Core</label>
+        </div>
+      </div>
+
+      <!-- body parts selection -->
+      <div class="mb-3 mt-3">
+        <div class="bodyparts-list">
+          <div id="bodyparts-label">
+            Body Parts
+            <p class="text-muted">Check those that applies:</p>
+          </div>
+          <%bodyParts.forEach(bodyPart => {%>
+
+          <div class="form-check form-check-inline bodyparts-checkbox">
+            <label for="<%=bodyPart.body_parts_name%>">
+              <%=bodyPart.body_parts_name%></label
+            >
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="body_parts"
+              id="<%=bodyPart.body_parts_name%>"
+              value="<%=bodyPart.id%>"
+            />
+          </div>
+          <%})%>
+        </div>
+      </div>
+
+      <!-- location select -->
+      <div class="mb-3 mt-3">
+        <div class="location-label">
+          Location:
+          <p class="text-muted">Can choose more than 1 location</p>
+        </div>
+        <div class="form-check mb-3 form-check-inline location-checkbox">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="home"
+            name="location_id"
+            value="1"
+            checked
+          />
+          <label class="form-check-label" for="home">Home</label>
+        </div>
+        <div class="form-check mb-3 form-check-inline location-checkbox">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="gym"
+            name="location_id"
+            value="2"
+          />
+          <label class="form-check-label" for="gym">Gym</label>
+        </div>
+        <div class="form-check mb-3 form-check-inline location-checkbox">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="outdoor"
+            name="location_id"
+            value="3"
+          />
+          <label class="form-check-label" for="outdoor">Outdoor</label>
+        </div>
+      </div>
+
+      <!-- form controls for sets,repetition and duration -->
+      <div class="mb-3 mt-3 d-flex justify-content-between">
+        <div class="sets-repetition d-flex">
+          <label for="sets">Sets:</label>
+          <div class="mb-3">
+            <input type="number" id="sets" name="sets" min="1" />
+          </div>
+        </div>
+
+        <div
+          class="sets-repetition d-flex justify-content-center align-items-center"
+        >
+          <label for="repetition">Repetition:</label>
+          <div class="align-self-center">
+            <input
+              type="range"
+              value="15"
+              id="repetition"
+              name="repetition"
+              min="1"
+              max="30"
+              oninput="this.nextElementSibling.value = this.value"
+            />
+            <output>15</output>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3 mt-3 d-flex duration-wrapper">
+        <label id="duration-label" for="duration"
+          >Duration:
+          <p class="text-muted">(if applies)</p>
+        </label>
+        <div class="mb-3">
+          <input type="number" id="sets" name="sets" min="1" />
+        </div>
+      </div>
+
+      <!-- to fill in url link -->
+      <div class="mb-1 mt-3">
+        <label for="url_link" class="form-label pb-0"
+          >Url Link to Workout Video:
+          <p class="text-muted mb-0">Please enter the embed url link</p></label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="url_link"
+          placeholder="example:https://www.youtube.com/watch?v=6VFLKdfxA24 "
+          name="url_link"
+        />
+      </div>
+      <div class="mb-2 d-flex justify-content-end">
+        <button type="submit" class="btn btn-primary form-submit-btn">
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<%- include('footer'); -%>
+<script>
+  const buttonsEl = document.getElementsByClassName("removeRow");
+  buttonsEl[0].disabled = true;
+
+  function addField(n) {
+    var tr = n.parentNode.parentNode.cloneNode(true);
+    document.getElementById("tbl").appendChild(tr);
+    buttonsEl[1].disabled = false;
+  }
+
+  function removeRow(o) {
+    //no clue what to put here?
+    var p = o.parentNode.parentNode;
+    p.parentNode.removeChild(p);
+  }
+
+  $("#form_check").on("submit", function (e) {
+    console.log($("input[name=equipment]:checked").length);
+    if (
+      $("input[name= equipment]:checked").length === 0 ||
+      !$("input[name=new_equipment]") ||
+      $("input[name=body_parts]:checked").length === 0 ||
+      $("input[name=location_id]:checked").length === 0
+    ) {
+      e.preventDefault();
+      alert("Please ensure all fields are filled in properly.");
+      return false;
+    }
+  });
+</script>

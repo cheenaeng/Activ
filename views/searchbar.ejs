@@ -1,0 +1,30 @@
+<nav
+  class="row d-flex justify-content-evenly align-items-center top-nav-main mt-3"
+>
+  <div class="col-2 avatar-icon">
+    <img src="/images/doggoavatar.png" alt="avatar" />
+  </div>
+  <div class="col col-5 justify-content-center d-flex">
+    <a href="/all-workouts">All workouts</a>
+  </div>
+  <div class="col-5 d-flex justify-content-center">
+    <form
+      class="form-inline d-flex search-bar-div align-items-center"
+      action="/allworkouts/find-workout"
+      method="POST"
+    >
+      <input
+        class="form-control search-bar"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+        name="searchbar"
+      />
+      <button class="btn p-0 m-0 d-flex align-items-center" type="submit">
+        <span class="material-icons material-icons-outlined search-btn"
+          >search</span
+        >
+      </button>
+    </form>
+  </div>
+</nav>
