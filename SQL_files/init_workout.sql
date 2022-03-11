@@ -9,7 +9,7 @@ DROP TABLE IF EXISTS locations ;
 
 DROP TABLE IF EXISTS equipment;
 DROP TABLE IF EXISTS template;
-DROP table if exists workout ;
+DROP table if exists workout cascade;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS category ;
 
