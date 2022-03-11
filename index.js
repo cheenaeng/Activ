@@ -121,7 +121,7 @@ app.post('/workout', (request,response)=>{
         const insertIntoWorkoutEquipment = `INSERT INTO workout_equipment(workout_id,equipment_id)VALUES($1,$2) returning *`
         return pool.query(insertIntoWorkoutEquipment,inputData)
       })
-    
+
        const bodyPartsQuery = [...body_parts].map(bodyPart =>{
         const inputValue = [workout.id,parseInt(bodyPart)]
         const insertIntoWorkoutBodyPart = 'INSERT INTO workout_body_parts(workout_id,body_parts_id) VALUES($1,$2) returning *'
